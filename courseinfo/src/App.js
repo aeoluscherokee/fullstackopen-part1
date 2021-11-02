@@ -15,9 +15,9 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part part={props.part1} />
-      <Part part={props.part2} />
-      <Part part={props.part3} />
+      {props.parts.map((part) => (
+        <Part part={part.name} />
+      ))}
     </div>
   );
 };
@@ -46,7 +46,7 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
-      <Content part1={part1.name} part2={part2.name} part3={part3.name} />
+      <Content parts={parts} />
       <Total total={part1.exercises + part2.exercises + part3.exercises} />
     </div>
   );
