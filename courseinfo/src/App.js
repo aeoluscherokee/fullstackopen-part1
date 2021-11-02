@@ -23,7 +23,18 @@ const Content = (props) => {
 };
 
 const Total = (props) => {
-  return <p>Number of exercises {props.total}</p>;
+  const sum = (array) => {
+    for (
+      var index = 0, length = array.length, sum = 0;
+      index < length;
+      sum += array[index++]
+    );
+    return sum;
+  };
+  const exercises = props.parts.map((part) => part.exercises);
+  const result = sum(exercises);
+
+  return <p>Number of exercises {result}</p>;
 };
 
 const App = () => {
@@ -47,7 +58,7 @@ const App = () => {
     <div>
       <Header course={course} />
       <Content parts={parts} />
-      <Total total={part1.exercises + part2.exercises + part3.exercises} />
+      <Total parts={parts} />
     </div>
   );
 };
