@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const Button = ({ name }) => {
+const Button = ({ name, onClick }) => {
   return (
     <div>
-      <button>{name}</button>
+      <button onClick={onClick}>{name}</button>
     </div>
   );
 };
@@ -21,10 +21,15 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
 
+  const randomAnecdotes = () => {
+    const random = Math.floor(Math.random() * anecdotes.length);
+    setSelected(random);
+  };
+
   return (
     <div>
       {anecdotes[selected]}
-      <Button name="next anecdote" />
+      <Button name="next anecdote" onClick={randomAnecdotes} />
     </div>
   );
 };
