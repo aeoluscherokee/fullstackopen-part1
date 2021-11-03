@@ -5,6 +5,9 @@ const Button = ({ name, onClick }) => {
 };
 
 const Statistics = (props) => {
+  if (props.statistics.all == 0) {
+    return <p>No feedback given</p>;
+  }
   return (
     <div>
       <p>good {props.statistics.good}</p>
