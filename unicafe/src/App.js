@@ -21,6 +21,22 @@ const App = () => {
     setBad(bad + 1);
   };
 
+  const all = good + bad + neutral;
+  const avgCal = () => {
+    const goodScore = good * 1;
+    const neutralScore = neutral * 0;
+    const badScore = bad * -1;
+    const avg = (goodScore + neutralScore + badScore) / all;
+    return avg;
+  };
+  const posCal = () => {
+    const all = good + bad + neutral;
+    const posPercent = (good / all) * 100;
+    return posPercent;
+  };
+  const average = avgCal();
+  const positive = posCal();
+
   return (
     <div>
       <h1>give feedback</h1>
@@ -31,6 +47,9 @@ const App = () => {
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>all {all}</p>
+      <p>average {average}</p>
+      <p>positive {positive} %</p>
     </div>
   );
 };
