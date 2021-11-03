@@ -6,25 +6,28 @@ const Button = ({ name, onClick }) => {
 
 const StatisticLine = (props) => {
   return (
-    <p>
-      {props.text} {props.value}
-    </p>
+    <tr>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </tr>
   );
 };
 
 const Statistics = (props) => {
-  if (props.statistics.all == 0) {
+  if (props.statistics.all === 0) {
     return <p>No feedback given</p>;
   }
   return (
-    <div>
-      <StatisticLine text="good" value={props.statistics.good} />
-      <StatisticLine text="neutral" value={props.statistics.neutral} />
-      <StatisticLine text="bad" value={props.statistics.bad} />
-      <StatisticLine text="all" value={props.statistics.all} />
-      <StatisticLine text="average" value={props.statistics.average} />
-      <StatisticLine text="positive" value={props.statistics.positive} />
-    </div>
+    <table>
+      <tbody>
+        <StatisticLine text="good" value={props.statistics.good} />
+        <StatisticLine text="neutral" value={props.statistics.neutral} />
+        <StatisticLine text="bad" value={props.statistics.bad} />
+        <StatisticLine text="all" value={props.statistics.all} />
+        <StatisticLine text="average" value={props.statistics.average} />
+        <StatisticLine text="positive" value={props.statistics.positive} />
+      </tbody>
+    </table>
   );
 };
 
