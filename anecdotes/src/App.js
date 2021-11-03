@@ -42,7 +42,7 @@ const App = () => {
       <Button name="next anecdote" onClick={randomAnecdotes} />
       <h1>Anecdote with most votes</h1>
       <p>{anecdotes[mostVoteIndex]}</p>
-      <p>{points[mostVoteIndex]}</p>
+      <p>has {points[mostVoteIndex]} votes</p>
     </div>
   );
 };
