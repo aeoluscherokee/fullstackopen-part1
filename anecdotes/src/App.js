@@ -28,6 +28,9 @@ const App = () => {
     const copy = [...points];
     copy[selected] += 1;
     setPoints(copy);
+    const value = Math.max(...copy);
+    const index = copy.findIndex((el) => el === value);
+    setMostVoteIndex(index);
   };
 
   return (
