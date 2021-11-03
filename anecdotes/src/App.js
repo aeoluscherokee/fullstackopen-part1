@@ -17,12 +17,13 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
   const [points, setPoints] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [mostVoteIndex, setMostVoteIndex] = useState(0);
 
   const randomAnecdotes = () => {
     const random = Math.floor(Math.random() * anecdotes.length);
     setSelected(random);
   };
-  console.log(selected);
+
   const voteAnecdotes = () => {
     const copy = [...points];
     copy[selected] += 1;
@@ -35,6 +36,8 @@ const App = () => {
       <p>has {points[selected]} vote </p>
       <Button name="vote" onClick={voteAnecdotes} />
       <Button name="next anecdote" onClick={randomAnecdotes} />
+      <p>{anecdotes[mostVoteIndex]}</p>
+      <p>{points[mostVoteIndex]}</p>
     </div>
   );
 };
