@@ -1,5 +1,13 @@
 import React, { useState } from "react";
 
+const Button = ({ name }) => {
+  return (
+    <div>
+      <button>{name}</button>
+    </div>
+  );
+};
+
 const App = () => {
   const anecdotes = [
     "If it hurts, do it more often",
@@ -13,7 +21,12 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
 
-  return <div>{anecdotes[selected]}</div>;
+  return (
+    <div>
+      {anecdotes[selected]}
+      <Button name="next anecdote" />
+    </div>
+  );
 };
 
 export default App;
