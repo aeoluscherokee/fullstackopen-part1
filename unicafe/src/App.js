@@ -21,11 +21,11 @@ const App = () => {
     setBad(bad + 1);
   };
 
-  const all = good + bad + neutral;
   const avgCal = () => {
     const goodScore = good * 1;
     const neutralScore = neutral * 0;
     const badScore = bad * -1;
+    const all = good + bad + neutral;
     const avg = (goodScore + neutralScore + badScore) / all;
     return avg;
   };
@@ -34,8 +34,15 @@ const App = () => {
     const posPercent = (good / all) * 100;
     return posPercent;
   };
-  const average = avgCal();
-  const positive = posCal();
+
+  const statistics = {
+    good: good,
+    neutral: neutral,
+    bad: bad,
+    all: good + bad + neutral,
+    average: avgCal(),
+    positive: posCal(),
+  };
 
   return (
     <div>
@@ -44,12 +51,12 @@ const App = () => {
       <Button name="neutral" onClick={clickOnNeutral} />
       <Button name="bad" onClick={clickOnBad} />
       <h1>statistics</h1>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {all}</p>
-      <p>average {average}</p>
-      <p>positive {positive} %</p>
+      <p>good {statistics.good}</p>
+      <p>neutral {statistics.neutral}</p>
+      <p>bad {statistics.bad}</p>
+      <p>all {statistics.all}</p>
+      <p>average {statistics.average}</p>
+      <p>positive {statistics.positive} %</p>
     </div>
   );
 };
